@@ -3,3 +3,4 @@ addons/*
 .addons/*
 # Godot 4+ specific ignores
 .godot/
+*DotSettings.user

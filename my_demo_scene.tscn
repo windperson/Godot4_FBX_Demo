@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp5qh3eubj4ph"]
+[gd_scene load_steps=6 format=3 uid="uid://dp5qh3eubj4ph"]
 
 [ext_resource type="Shader" path="res://SimpleSky.gdshader" id="1_gpu1w"]
+[ext_resource type="Script" path="res://RotateNode.cs" id="1_kf4dc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fuh5j"]
 shader = ExtResource("1_gpu1w")
@@ -16,6 +17,7 @@ sky = SubResource("Sky_sibkx")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+script = ExtResource("1_kf4dc")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
