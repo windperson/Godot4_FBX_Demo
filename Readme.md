@@ -8,3 +8,7 @@ Prerequisites:
 ## Screenshots
 
 ![](./screenshots/demo_FBX_model.png)
+
+There's another rotating cube demo that is using C# script in ***CSharp_script_demo*** git tag, rotation speed can be changed in the inspector panel:
+
+![](./screenshots/demo_csharp_script.png)
