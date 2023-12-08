@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dp5qh3eubj4ph"]
+[gd_scene load_steps=7 format=3 uid="uid://dp5qh3eubj4ph"]
 
 [ext_resource type="Shader" path="res://SimpleSky.gdshader" id="1_gpu1w"]
-[ext_resource type="Script" path="res://RotateNode.cs" id="1_kf4dc"]
+[ext_resource type="Script" path="res://addons/orbit_camera/orbit_camera.gd" id="3_85a3p"]
+[ext_resource type="PackedScene" uid="uid://wjmgs5k12827" path="res://model_imports/FC_04.fbx" id="3_fd8a1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fuh5j"]
 shader = ExtResource("1_gpu1w")
@@ -15,12 +16,18 @@ sky = SubResource("Sky_sibkx")
 
 [node name="My Demo Scene" type="Node3D"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-script = ExtResource("1_kf4dc")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_imlu2")
+
+[node name="ConceptCar" parent="." instance=ExtResource("3_fd8a1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="OrbitCamera" type="Camera3D" parent="Node3D"]
+script = ExtResource("3_85a3p")
+SCROLL_SPEED = 7.0
+ZOOM_SPEED = 10.0
+DEFAULT_DISTANCE = 5.0
+ROTATE_SPEED = 7.0
+ANCHOR_NODE_PATH = NodePath("..")
