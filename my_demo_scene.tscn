@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp5qh3eubj4ph"]
+
+[ext_resource type="Shader" path="res://SimpleSky.gdshader" id="1_gpu1w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fuh5j"]
+shader = ExtResource("1_gpu1w")
+
+[sub_resource type="Sky" id="Sky_sibkx"]
+sky_material = SubResource("ShaderMaterial_fuh5j")
+
+[sub_resource type="Environment" id="Environment_imlu2"]
+background_mode = 2
+sky = SubResource("Sky_sibkx")
+
+[node name="My Demo Scene" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_imlu2")
